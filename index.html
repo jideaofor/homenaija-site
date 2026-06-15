@@ -1,0 +1,1814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Find available rentals in Enugu. See full move-in cost upfront. Chat with us directly on WhatsApp — same day response.">
+<title>HomeNaija — Available Rentals in Enugu</title>
+<meta property="og:title" content="HomeNaija — Available Rentals in Enugu">
+<meta property="og:description" content="Browse available rentals. Full move-in cost shown upfront. Chat on WhatsApp for same-day response.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://homenaija.ng/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1C1C1C">
+<link rel="canonical" href="https://homenaija.ng/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2300C853'/%3E%3Cpath d='M16 6L6 14v12h7v-6h6v6h7V14L16 6z' fill='%231C1C1C'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════
+   DESIGN TOKENS — 3-layer system
+   Primitive → Semantic → Component
+═══════════════════════════════════════ */
+:root {
+  /* Primitive */
+  --p-emerald-500: #00C853;
+  --p-emerald-600: #00B248;
+  --p-emerald-700: #00962E;
+  --p-emerald-50:  #E9FBF0;
+  --p-black:       #1C1C1C;
+  --p-grey-900:    #2E2E2E;
+  --p-grey-700:    #444444;
+  --p-grey-500:    #6B6B6B;
+  --p-grey-300:    #C4C4C4;
+  --p-grey-100:    #F2F2F2;
+  --p-grey-50:     #FAFAFA;
+  --p-white:       #FFFFFF;
+  --p-wa-green:    #25D366;
+  --p-wa-dark:     #128C7E;
+
+  /* Semantic */
+  --color-primary:        var(--p-emerald-500);
+  --color-primary-dark:   var(--p-emerald-700);
+  --color-primary-light:  var(--p-emerald-50);
+  --color-surface:        var(--p-white);
+  --color-surface-2:      var(--p-grey-50);
+  --color-surface-3:      var(--p-grey-100);
+  --color-text-primary:   var(--p-black);
+  --color-text-secondary: var(--p-grey-500);
+  --color-text-muted:     var(--p-grey-300);
+  --color-border:         var(--p-grey-100);
+  --color-border-strong:  var(--p-grey-300);
+  --color-wa:             var(--p-wa-green);
+  --color-wa-dark:        var(--p-wa-dark);
+
+  /* Component tokens */
+  --btn-height-md:   48px;
+  --btn-height-lg:   56px;
+  --btn-radius:      10px;
+  --card-radius:     14px;
+  --card-shadow:     0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.06);
+  --card-shadow-hover: 0 4px 12px rgba(0,0,0,.12), 0 8px 24px rgba(0,0,0,.08);
+  --modal-radius:    20px 20px 0 0;
+  --nav-height:      60px;
+  --search-height:   60px;
+
+  /* Typography */
+  --font-display: 'Big Shoulders Display', -apple-system, sans-serif;
+  --font-body:    'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Fluid type scale */
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  clamp(1.75rem, 4vw, 2.25rem);
+  --text-4xl:  clamp(2.25rem, 5vw, 3rem);
+
+  /* Spacing (8dp grid) */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+}
+
+/* ═══════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text-primary);
+  background: var(--color-surface);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  padding-top: calc(var(--nav-height) + var(--search-height));
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font-family: var(--font-body); cursor: pointer; border: none; background: none; }
+input, select, textarea { font-family: var(--font-body); }
+
+/* ═══════════════════════════════════════
+   NAVIGATION
+═══════════════════════════════════════ */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-height);
+  background: var(--p-black);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-4);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.nav-logo-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--color-primary);
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.nav-logo-icon svg { width: 18px; height: 18px; }
+
+.nav-wordmark {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  color: var(--p-white);
+}
+
+.nav-wordmark span { color: var(--color-primary); }
+
+.nav-wa-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--color-wa);
+  color: var(--p-white);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  padding: var(--space-2) var(--space-3);
+  border-radius: 8px;
+  min-height: 36px;
+  touch-action: manipulation;
+  transition: background 0.15s;
+}
+.nav-wa-btn:hover, .nav-wa-btn:active { background: var(--color-wa-dark); }
+.nav-wa-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+/* ═══════════════════════════════════════
+   SEARCH BAR
+═══════════════════════════════════════ */
+.search-bar {
+  position: fixed;
+  top: var(--nav-height);
+  left: 0; right: 0;
+  height: var(--search-height);
+  background: var(--p-white);
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+
+.search-input-wrap {
+  flex: 1;
+  position: relative;
+}
+
+.search-input-wrap svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: var(--color-text-secondary);
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  height: 40px;
+  background: var(--color-surface-3);
+  border: 1.5px solid transparent;
+  border-radius: 8px;
+  padding: 0 var(--space-4) 0 36px;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  outline: none;
+  transition: border-color 0.15s, background 0.15s;
+  -webkit-appearance: none;
+}
+.search-input::placeholder { color: var(--color-text-secondary); }
+.search-input:focus { border-color: var(--color-primary); background: var(--p-white); }
+
+.filter-btn {
+  height: 40px;
+  padding: 0 var(--space-3);
+  background: var(--color-surface-3);
+  border: 1.5px solid transparent;
+  border-radius: 8px;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  touch-action: manipulation;
+  transition: all 0.15s;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+.filter-btn.active { border-color: var(--color-primary); background: var(--color-primary-light); color: var(--color-primary-dark); }
+.filter-btn svg { width: 14px; height: 14px; }
+
+/* ═══════════════════════════════════════
+   MAIN CONTENT
+═══════════════════════════════════════ */
+.main { padding: var(--space-4) var(--space-4) var(--space-16); max-width: 960px; margin: 0 auto; }
+
+/* Results header */
+.results-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+.results-count {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.results-count strong { color: var(--color-text-primary); }
+
+.clear-filters-btn {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--color-primary-light);
+  display: none;
+  touch-action: manipulation;
+}
+.clear-filters-btn.visible { display: block; }
+
+/* ═══════════════════════════════════════
+   LISTING GRID
+═══════════════════════════════════════ */
+.listings-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 540px) {
+  .listings-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 800px) {
+  .listings-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ═══════════════════════════════════════
+   LISTING CARD
+═══════════════════════════════════════ */
+.card {
+  background: var(--p-white);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.15s;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.card:hover { box-shadow: var(--card-shadow-hover); transform: translateY(-2px); }
+.card:active { transform: scale(0.98); }
+
+.card-photo-wrap {
+  position: relative;
+  aspect-ratio: 4/3;
+  background: var(--color-surface-3);
+  overflow: hidden;
+}
+
+.card-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+.card:hover .card-photo { transform: scale(1.03); }
+
+.card-badge {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  background: var(--p-black);
+  color: var(--p-white);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 5px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.card-freshness {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  background: var(--color-primary);
+  color: var(--p-black);
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 3px 7px;
+  border-radius: 5px;
+  letter-spacing: 0.2px;
+}
+
+.card-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #E9FBF0 0%, #F2F2F2 100%);
+}
+.card-photo-placeholder svg { width: 48px; height: 48px; color: var(--p-grey-300); }
+
+.card-body { padding: var(--space-3) var(--space-3) 0; flex: 1; display: flex; flex-direction: column; }
+
+.card-location {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 4px;
+}
+.card-location svg { width: 11px; height: 11px; flex-shrink: 0; }
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+  margin-bottom: var(--space-2);
+}
+
+.card-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.card-rent {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--color-text-primary);
+  letter-spacing: -0.5px;
+}
+
+.card-rent-label {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.card-movein {
+  background: var(--color-primary-light);
+  border-radius: 6px;
+  padding: var(--space-2) var(--space-3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+}
+
+.card-movein-label {
+  font-size: var(--text-xs);
+  color: var(--p-emerald-700);
+  font-weight: 600;
+}
+
+.card-movein-amount {
+  font-size: var(--text-sm);
+  font-weight: 800;
+  color: var(--p-black);
+}
+
+.card-features {
+  display: flex;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.card-feature {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+.card-feature svg { width: 12px; height: 12px; flex-shrink: 0; }
+
+.card-footer { padding: var(--space-3); padding-top: 0; }
+
+.btn-wa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  width: 100%;
+  height: var(--btn-height-md);
+  background: var(--color-wa);
+  color: var(--p-white);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  border-radius: var(--btn-radius);
+  touch-action: manipulation;
+  transition: background 0.15s, transform 0.1s;
+  letter-spacing: 0.1px;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  z-index: 2;
+}
+.btn-wa:hover { background: var(--color-wa-dark); }
+.btn-wa:active { transform: scale(0.97); }
+.btn-wa svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+/* ═══════════════════════════════════════
+   SKELETON LOADING
+═══════════════════════════════════════ */
+.skeleton-card {
+  background: var(--p-white);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+}
+
+.skeleton-photo { aspect-ratio: 4/3; background: var(--color-surface-3); }
+.skeleton-body { padding: var(--space-3); }
+.skeleton-line { height: 12px; background: var(--color-surface-3); border-radius: 6px; margin-bottom: var(--space-2); }
+.skeleton-line.w-60 { width: 60%; }
+.skeleton-line.w-80 { width: 80%; }
+.skeleton-line.w-40 { width: 40%; }
+.skeleton-btn { height: var(--btn-height-md); background: var(--color-surface-3); border-radius: var(--btn-radius); margin-top: var(--space-2); }
+
+.skeleton-card .skeleton-photo,
+.skeleton-card .skeleton-line,
+.skeleton-card .skeleton-btn {
+  animation: shimmer 1.5s infinite;
+  background: linear-gradient(90deg, #F2F2F2 25%, #E6E6E6 50%, #F2F2F2 75%);
+  background-size: 200% 100%;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ═══════════════════════════════════════
+   EMPTY STATE
+═══════════════════════════════════════ */
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: var(--space-16) var(--space-4);
+}
+.empty-state svg { width: 56px; height: 56px; color: var(--color-text-muted); margin: 0 auto var(--space-4); }
+.empty-state h3 { font-size: var(--text-xl); font-weight: 700; margin-bottom: var(--space-2); }
+.empty-state p { color: var(--color-text-secondary); font-size: var(--text-sm); }
+
+/* ═══════════════════════════════════════
+   LISTING DETAIL MODAL
+═══════════════════════════════════════ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+
+.modal {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: var(--p-white);
+  border-radius: var(--modal-radius);
+  z-index: 201;
+  max-height: 92dvh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+}
+.modal.open { transform: translateY(0); }
+
+@media (min-width: 640px) {
+  .modal {
+    left: 50%;
+    transform: translateX(-50%) translateY(100%);
+    width: 540px;
+    border-radius: var(--card-radius);
+    bottom: 40px;
+    max-height: 88dvh;
+  }
+  .modal.open { transform: translateX(-50%) translateY(0); }
+}
+
+.modal-handle {
+  width: 40px;
+  height: 4px;
+  background: var(--color-border-strong);
+  border-radius: 2px;
+  margin: var(--space-3) auto var(--space-2);
+}
+
+.modal-header {
+  position: sticky;
+  top: 0;
+  background: var(--p-white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-4) var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+  z-index: 10;
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 800;
+  flex: 1;
+  padding-right: var(--space-4);
+}
+
+.modal-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-surface-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.15s;
+}
+.modal-close:hover, .modal-close:active { background: var(--color-border-strong); }
+.modal-close svg { width: 18px; height: 18px; }
+
+/* Gallery */
+.modal-gallery {
+  position: relative;
+  aspect-ratio: 16/9;
+  background: var(--color-surface-3);
+  overflow: hidden;
+}
+
+.modal-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #E9FBF0 0%, #F2F2F2 100%);
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--p-emerald-500);
+  opacity: 0.4;
+}
+
+/* Modal body */
+.modal-body { padding: var(--space-4); }
+
+.modal-location {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: var(--space-1);
+}
+.modal-location svg { width: 12px; height: 12px; }
+
+.modal-price-block { margin-bottom: var(--space-4); }
+
+.modal-rent {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1;
+  margin-bottom: var(--space-1);
+}
+
+.modal-rent-sub { font-size: var(--text-sm); color: var(--color-text-secondary); font-weight: 500; }
+
+/* Move-in cost breakdown */
+.cost-table {
+  background: var(--color-surface-2);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: var(--space-4);
+  border: 1px solid var(--color-border);
+}
+
+.cost-table-header {
+  background: var(--p-black);
+  color: var(--p-white);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-xs);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cost-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+.cost-row:last-child { border-bottom: none; }
+
+.cost-label { font-size: var(--text-sm); color: var(--color-text-secondary); font-weight: 500; }
+.cost-value { font-size: var(--text-sm); font-weight: 700; color: var(--color-text-primary); }
+
+.cost-total {
+  background: var(--color-primary-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-3) var(--space-4);
+}
+.cost-total .cost-label { font-weight: 800; color: var(--p-emerald-700); font-size: var(--text-sm); text-transform: uppercase; letter-spacing: 0.3px; }
+.cost-total .cost-value { font-size: var(--text-lg); font-weight: 900; color: var(--p-black); }
+
+/* Features chips */
+.features-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.feature-chip {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  background: var(--color-surface-3);
+  border-radius: 20px;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+.feature-chip svg { width: 12px; height: 12px; }
+
+/* Primary action */
+.modal-cta { margin-bottom: var(--space-4); }
+
+.btn-wa-lg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  width: 100%;
+  height: var(--btn-height-lg);
+  background: var(--color-wa);
+  color: var(--p-white);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  border-radius: var(--btn-radius);
+  touch-action: manipulation;
+  transition: background 0.15s, transform 0.1s;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn-wa-lg:hover { background: var(--color-wa-dark); }
+.btn-wa-lg:active { transform: scale(0.98); }
+.btn-wa-lg svg { width: 22px; height: 22px; }
+
+.modal-or {
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  font-weight: 500;
+  margin: var(--space-3) 0;
+  position: relative;
+}
+.modal-or::before, .modal-or::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 38%;
+  height: 1px;
+  background: var(--color-border);
+}
+.modal-or::before { left: 0; }
+.modal-or::after { right: 0; }
+
+/* ═══════════════════════════════════════
+   CALLBACK FORM
+═══════════════════════════════════════ */
+.callback-form {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.callback-form h3 {
+  font-size: var(--text-base);
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+}
+
+.callback-form p {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-4);
+  line-height: 1.5;
+}
+
+.form-group { margin-bottom: var(--space-3); }
+
+.form-label {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.form-input {
+  width: 100%;
+  height: var(--btn-height-md);
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: 8px;
+  padding: 0 var(--space-4);
+  font-size: 16px; /* prevents iOS zoom */
+  font-weight: 500;
+  color: var(--color-text-primary);
+  background: var(--p-white);
+  outline: none;
+  transition: border-color 0.15s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.form-input:focus { border-color: var(--color-primary); }
+
+.form-select {
+  width: 100%;
+  height: var(--btn-height-md);
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: 8px;
+  padding: 0 var(--space-4);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  background: var(--p-white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B6B6B' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.form-select:focus { border-color: var(--color-primary); }
+
+.btn-callback {
+  width: 100%;
+  height: var(--btn-height-md);
+  background: var(--p-black);
+  color: var(--p-white);
+  font-size: var(--text-base);
+  font-weight: 700;
+  border-radius: var(--btn-radius);
+  touch-action: manipulation;
+  transition: background 0.15s, transform 0.1s;
+  -webkit-tap-highlight-color: transparent;
+  margin-top: var(--space-1);
+}
+.btn-callback:hover { background: var(--p-grey-900); }
+.btn-callback:active { transform: scale(0.98); }
+.btn-callback.loading { opacity: 0.7; pointer-events: none; }
+
+.form-success {
+  display: none;
+  text-align: center;
+  padding: var(--space-6) 0;
+}
+.form-success.show { display: block; }
+.form-success .icon { font-size: 2.5rem; margin-bottom: var(--space-2); }
+.form-success h4 { font-weight: 700; margin-bottom: var(--space-1); }
+.form-success p { font-size: var(--text-sm); color: var(--color-text-secondary); }
+
+/* ═══════════════════════════════════════
+   FILTER DRAWER (mobile)
+═══════════════════════════════════════ */
+.filter-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.4);
+  z-index: 150;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+.filter-overlay.open { opacity: 1; pointer-events: all; }
+
+.filter-drawer {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: var(--p-white);
+  border-radius: 20px 20px 0 0;
+  z-index: 151;
+  padding: var(--space-4);
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+}
+.filter-drawer.open { transform: translateY(0); }
+
+.filter-drawer-handle {
+  width: 40px; height: 4px;
+  background: var(--color-border-strong);
+  border-radius: 2px;
+  margin: 0 auto var(--space-5);
+}
+
+.filter-drawer h2 {
+  font-size: var(--text-xl);
+  font-weight: 800;
+  margin-bottom: var(--space-5);
+}
+
+.filter-group { margin-bottom: var(--space-5); }
+.filter-group-label {
+  font-size: var(--text-xs);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-2);
+}
+
+.filter-chips { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.filter-chip {
+  padding: 7px 14px;
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: 20px;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  background: var(--p-white);
+  touch-action: manipulation;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.filter-chip:hover, .filter-chip.active {
+  border-color: var(--p-black);
+  background: var(--p-black);
+  color: var(--p-white);
+}
+
+.filter-actions {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.btn-reset {
+  flex: 1;
+  height: var(--btn-height-md);
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: var(--btn-radius);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  background: var(--p-white);
+  touch-action: manipulation;
+  transition: all 0.15s;
+}
+.btn-reset:hover { background: var(--color-surface-3); }
+
+.btn-apply {
+  flex: 2;
+  height: var(--btn-height-md);
+  background: var(--p-black);
+  color: var(--p-white);
+  border-radius: var(--btn-radius);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  touch-action: manipulation;
+  transition: background 0.15s;
+}
+.btn-apply:hover { background: var(--p-grey-900); }
+
+/* ═══════════════════════════════════════
+   FLOATING WA BUTTON
+═══════════════════════════════════════ */
+.fab-wa {
+  position: fixed;
+  bottom: calc(var(--space-6) + env(safe-area-inset-bottom, 0px));
+  right: var(--space-4);
+  width: 56px;
+  height: 56px;
+  background: var(--color-wa);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(37,211,102,.4);
+  z-index: 80;
+  touch-action: manipulation;
+  transition: background 0.15s, transform 0.2s, box-shadow 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.fab-wa:hover { background: var(--color-wa-dark); transform: scale(1.08); }
+.fab-wa:active { transform: scale(0.95); }
+.fab-wa svg { width: 28px; height: 28px; }
+
+/* Hide FAB when modal open */
+.modal.open ~ .fab-wa { opacity: 0; pointer-events: none; }
+
+/* ═══════════════════════════════════════
+   TRUST BAR
+═══════════════════════════════════════ */
+.trust-bar {
+  background: var(--p-black);
+  color: var(--p-white);
+  padding: var(--space-8) var(--space-4);
+  text-align: center;
+  margin-top: var(--space-8);
+}
+
+.trust-bar-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.trust-bar h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 900;
+  margin-bottom: var(--space-2);
+  line-height: 1.1;
+}
+
+.trust-bar h2 span { color: var(--color-primary); }
+
+.trust-bar p {
+  font-size: var(--text-sm);
+  color: rgba(255,255,255,.6);
+  max-width: 480px;
+  margin: 0 auto var(--space-5);
+  line-height: 1.6;
+}
+
+.trust-wa-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 52px;
+  padding: 0 var(--space-6);
+  background: var(--color-wa);
+  color: var(--p-white);
+  font-size: var(--text-base);
+  font-weight: 700;
+  border-radius: 26px;
+  touch-action: manipulation;
+  transition: background 0.15s, transform 0.1s;
+  -webkit-tap-highlight-color: transparent;
+}
+.trust-wa-btn:hover { background: var(--color-wa-dark); }
+.trust-wa-btn:active { transform: scale(0.97); }
+.trust-wa-btn svg { width: 20px; height: 20px; }
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+.footer {
+  background: var(--p-black);
+  color: rgba(255,255,255,.5);
+  padding: var(--space-6) var(--space-4);
+  text-align: center;
+  font-size: var(--text-xs);
+  line-height: 1.7;
+}
+.footer a { color: var(--color-primary); }
+
+/* ═══════════════════════════════════════
+   UTILITIES
+═══════════════════════════════════════ */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+.price-badge {
+  display: inline-block;
+  background: var(--color-primary);
+  color: var(--p-black);
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVIGATION ═══ -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <a href="/" class="nav-logo" aria-label="HomeNaija home">
+    <div class="nav-logo-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 10.5L12 3l9 7.5V21H15v-5h-6v5H3V10.5z" fill="#1C1C1C"/>
+        <path d="M9 16l2.5 2.5L15 13" stroke="#00C853" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <span class="nav-wordmark">Home<span>Naija</span></span>
+  </a>
+  <a href="https://wa.me/2349167627858?text=Hi%20HomeNaija!%20I%27m%20looking%20for%20a%20rental%20in%20Enugu.%20Can%20you%20help%3F"
+     class="nav-wa-btn"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Chat with us on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.113 1.522 5.847L0 24l6.302-1.499A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.368l-.36-.213-3.736.889.934-3.626-.234-.373A9.818 9.818 0 012.182 12C2.182 6.566 6.566 2.182 12 2.182S21.818 6.566 21.818 12 17.434 21.818 12 21.818z"/>
+    </svg>
+    <span>Chat with us</span>
+  </a>
+</nav>
+
+<!-- ═══ SEARCH BAR ═══ -->
+<div class="search-bar" role="search">
+  <div class="search-input-wrap">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+    </svg>
+    <input
+      type="search"
+      class="search-input"
+      id="searchInput"
+      placeholder="Search area, e.g. GRA, Trans Ekulu…"
+      aria-label="Search by area"
+      autocomplete="off"
+      inputmode="search"
+    >
+  </div>
+  <button class="filter-btn" id="filterBtn" aria-label="Filter listings" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/>
+    </svg>
+    Filter
+  </button>
+</div>
+
+<!-- ═══ MAIN CONTENT ═══ -->
+<main class="main" id="main-content" tabindex="-1">
+  <h1 class="sr-only">Available Rentals in Enugu — HomeNaija</h1>
+
+  <div class="results-header">
+    <p class="results-count" id="resultsCount" aria-live="polite">
+      Loading homes…
+    </p>
+    <button class="clear-filters-btn" id="clearFilters" onclick="clearAllFilters()">
+      Clear filters
+    </button>
+  </div>
+
+  <div class="listings-grid" id="listingsGrid" role="list" aria-label="Available listings">
+    <!-- Skeletons -->
+    <div class="skeleton-card" aria-hidden="true">
+      <div class="skeleton-photo"></div>
+      <div class="skeleton-body">
+        <div class="skeleton-line w-40"></div>
+        <div class="skeleton-line w-80"></div>
+        <div class="skeleton-line w-60"></div>
+        <div class="skeleton-btn"></div>
+      </div>
+    </div>
+    <div class="skeleton-card" aria-hidden="true">
+      <div class="skeleton-photo"></div>
+      <div class="skeleton-body">
+        <div class="skeleton-line w-40"></div>
+        <div class="skeleton-line w-80"></div>
+        <div class="skeleton-line w-60"></div>
+        <div class="skeleton-btn"></div>
+      </div>
+    </div>
+    <div class="skeleton-card" aria-hidden="true">
+      <div class="skeleton-photo"></div>
+      <div class="skeleton-body">
+        <div class="skeleton-line w-40"></div>
+        <div class="skeleton-line w-80"></div>
+        <div class="skeleton-line w-60"></div>
+        <div class="skeleton-btn"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Trust bar -->
+  <div class="trust-bar">
+    <div class="trust-bar-inner">
+      <h2>Not seeing what <span>you need?</span></h2>
+      <p>Tell us your budget, area, and what you're looking for. We'll find it for you — same day response.</p>
+      <a href="https://wa.me/2349167627858?text=Hi%20HomeNaija!%20I%20need%20help%20finding%20a%20rental%20in%20Enugu.%20My%20budget%20is%20₦"
+         class="trust-wa-btn"
+         target="_blank"
+         rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.113 1.522 5.847L0 24l6.302-1.499A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.368l-.36-.213-3.736.889.934-3.626-.234-.373A9.818 9.818 0 012.182 12C2.182 6.566 6.566 2.182 12 2.182S21.818 6.566 21.818 12 17.434 21.818 12 21.818z"/>
+        </svg>
+        Tell us what you need
+      </a>
+    </div>
+  </div>
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <p>© 2026 HomeNaija · WhatsApp: <a href="https://wa.me/2349167627858">+234 916 762 7858</a></p>
+  <p>Instagram: <a href="https://instagram.com/home.naija" target="_blank" rel="noopener">@home.naija</a> · Starting in Enugu, expanding nationwide</p>
+  <p style="margin-top:8px; font-size:0.65rem;">Prices shown are indicative guides. Final terms negotiated directly with the agent.</p>
+</footer>
+
+<!-- ═══ FLOATING WA BUTTON ═══ -->
+<a href="https://wa.me/2349167627858?text=Hi%20HomeNaija!%20I%27m%20looking%20for%20a%20rental%20in%20Enugu."
+   class="fab-wa"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white" aria-hidden="true">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.113 1.522 5.847L0 24l6.302-1.499A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.368l-.36-.213-3.736.889.934-3.626-.234-.373A9.818 9.818 0 012.182 12C2.182 6.566 6.566 2.182 12 2.182S21.818 6.566 21.818 12 17.434 21.818 12 21.818z"/>
+  </svg>
+</a>
+
+<!-- ═══ LISTING DETAIL MODAL ═══ -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal" id="modal">
+    <div class="modal-handle" aria-hidden="true"></div>
+
+    <div class="modal-header">
+      <h2 class="modal-title" id="modalTitle">Listing</h2>
+      <button class="modal-close" id="modalClose" aria-label="Close listing">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="modal-gallery" id="modalGallery">
+      <div class="gallery-placeholder" aria-hidden="true">🏠</div>
+    </div>
+
+    <div class="modal-body" id="modalBody">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FILTER DRAWER ═══ -->
+<div class="filter-overlay" id="filterOverlay"></div>
+<div class="filter-drawer" id="filterDrawer" role="dialog" aria-modal="true" aria-label="Filter listings">
+  <div class="filter-drawer-handle" aria-hidden="true"></div>
+  <h2>Filter</h2>
+
+  <div class="filter-group">
+    <div class="filter-group-label">Property type</div>
+    <div class="filter-chips" id="typeChips">
+      <button class="filter-chip" data-filter="type" data-value="">All types</button>
+      <button class="filter-chip" data-filter="type" data-value="Self-Con">Self-Con</button>
+      <button class="filter-chip" data-filter="type" data-value="Flat">Flat</button>
+      <button class="filter-chip" data-filter="type" data-value="Mini Flat">Mini Flat</button>
+      <button class="filter-chip" data-filter="type" data-value="Duplex">Duplex</button>
+      <button class="filter-chip" data-filter="type" data-value="Bungalow">Bungalow</button>
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <div class="filter-group-label">Max budget (rent/yr)</div>
+    <div class="filter-chips" id="budgetChips">
+      <button class="filter-chip active" data-filter="budget" data-value="">Any budget</button>
+      <button class="filter-chip" data-filter="budget" data-value="300000">Under ₦300k</button>
+      <button class="filter-chip" data-filter="budget" data-value="500000">Under ₦500k</button>
+      <button class="filter-chip" data-filter="budget" data-value="800000">Under ₦800k</button>
+      <button class="filter-chip" data-filter="budget" data-value="1200000">Under ₦1.2m</button>
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <div class="filter-group-label">Bedrooms</div>
+    <div class="filter-chips" id="bedsChips">
+      <button class="filter-chip active" data-filter="beds" data-value="">Any</button>
+      <button class="filter-chip" data-filter="beds" data-value="1">1 bed</button>
+      <button class="filter-chip" data-filter="beds" data-value="2">2 beds</button>
+      <button class="filter-chip" data-filter="beds" data-value="3">3 beds</button>
+      <button class="filter-chip" data-filter="beds" data-value="4">4+ beds</button>
+    </div>
+  </div>
+
+  <div class="filter-actions">
+    <button class="btn-reset" onclick="resetFilters()">Reset</button>
+    <button class="btn-apply" onclick="applyFilters()">Show homes</button>
+  </div>
+</div>
+
+<script>
+/* ═══════════════════════════════════════
+   CONFIGURATION
+═══════════════════════════════════════ */
+const CONFIG = {
+  // GG's WhatsApp number (no + or spaces)
+  waNumber: '2349167627858',
+
+  // Airtable — leave blank to use sample data
+  airtableToken:  '',
+  airtableBase:   'appO6JSxAtyMJsHER',
+  airtableTable:  'tblListings',
+
+  // Cloudflare Worker proxy (set after deploy)
+  listingsApi: 'https://fuzzy-salmon-3388.homenaija.deno.net',
+
+  // Freshness: hide listings not confirmed in this many days
+  staleDays: 14,
+
+  // Callback form Worker endpoint
+  callbackApi: 'https://proper-tortoise-7425.homenaija.deno.net/callback',
+};
+
+/* ═══════════════════════════════════════
+   SAMPLE LISTINGS (used when Airtable not configured)
+═══════════════════════════════════════ */
+// Sample/demo listings removed 2026-06-15 — the site shows only real Live listings from Airtable.
+const SAMPLE_LISTINGS = [];
+
+/* ═══════════════════════════════════════
+   STATE
+═══════════════════════════════════════ */
+let allListings = [];
+let filteredListings = [];
+let activeFilters = { type: '', budget: '', beds: '', search: '' };
+let currentListing = null;
+
+/* ═══════════════════════════════════════
+   UTILITY FUNCTIONS
+═══════════════════════════════════════ */
+function formatPrice(n) {
+  if (!n) return '0';
+  if (n >= 1000000) return (n / 1000000).toFixed(n % 1000000 === 0 ? 0 : 1) + 'm';
+  if (n >= 1000) return (n / 1000).toFixed(n % 1000 === 0 ? 0 : 0) + 'k';
+  return n.toString();
+}
+
+function formatPriceFull(n) {
+  if (!n) return '₦0';
+  return '₦' + n.toLocaleString('en-NG');
+}
+
+function isFresh(record) {
+  const lastConfirmed = record.fields['Last Confirmed'] || record.fields['Date Added'];
+  if (!lastConfirmed) return true;
+  const diffDays = (Date.now() - new Date(lastConfirmed)) / 86400000;
+  return diffDays <= CONFIG.staleDays;
+}
+
+function buildWALink(listing) {
+  const f = listing.fields;
+  const type = f['Property Type'] || 'property';
+  const beds = f['Bedrooms'] ? `${f['Bedrooms']}-bed ` : '';
+  const area = f['Location'] || '';
+  const rent = f['Rent'] ? `₦${formatPrice(f['Rent'])}/yr` : '';
+  const text = `Hi HomeNaija! I'm interested in the ${beds}${type} in ${area} (${rent}). Is it still available?`;
+  return `https://wa.me/${CONFIG.waNumber}?text=${encodeURIComponent(text)}`;
+}
+
+function getBedLabel(beds) {
+  if (!beds) return '';
+  if (beds === 1) return '1 Bed';
+  return `${beds} Beds`;
+}
+
+/* ═══════════════════════════════════════
+   LISTING CARD BUILDER
+═══════════════════════════════════════ */
+/* -- Video helpers (YouTube) -- */
+function ytId(u) {
+  if (!u) return '';
+  const m = String(u).match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/|v\/))([A-Za-z0-9_-]{11})/);
+  return m ? m[1] : '';
+}
+function playVideo(id) {
+  const g = document.getElementById('modalGallery');
+  if (g) g.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&playsinline=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="width:100%;height:100%;border:0;"></iframe>`;
+}
+
+function buildCard(listing) {
+  const f = listing.fields;
+  const waLink = buildWALink(listing);
+  const type = f['Property Type'] || 'Property';
+  const beds = f['Bedrooms'] || '';
+  const area = f['Location'] || '';
+  const rent = f['Rent'] || 0;
+  const total = f['Total Move-In'] || 0;
+  const photoUrl = f['Photo URL'] || '';
+  const videoUrl = f['Video URL'] || '';
+  const vid = ytId(videoUrl);
+  const cardImg = photoUrl || (vid ? `https://i.ytimg.com/vi/${vid}/hqdefault.jpg` : '');
+  const fresh = isFresh(listing);
+
+  const photoHtml = cardImg
+    ? `<img class="card-photo" src="${cardImg}" alt="${type} in ${area}" loading="lazy" width="400" height="300">`
+    : `<div class="card-photo-placeholder" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+          <path d="M3 10.5L12 3l9 7.5V21H15v-5h-6v5H3z"/>
+        </svg>
+      </div>`;
+  const playOverlay = vid
+    ? `<div aria-hidden="true" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:rgba(0,0,0,.6);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;padding-left:3px;pointer-events:none;">&#9654;</div>`
+    : '';
+
+  return `
+    <article class="card" role="listitem" tabindex="0"
+             onclick="openModal('${listing.id}')"
+             onkeydown="if(event.key==='Enter'||event.key===' ')openModal('${listing.id}')"
+             aria-label="${beds ? beds + '-bedroom ' : ''}${type} in ${area}, rent ₦${formatPrice(rent)} per year">
+      <div class="card-photo-wrap">
+        ${photoHtml}
+        ${playOverlay}
+        <div class="card-badge">${type}</div>
+        ${fresh ? '<div class="card-freshness">Available</div>' : ''}
+      </div>
+      <div class="card-body">
+        <div class="card-location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+          ${area}
+        </div>
+        <div class="card-title">${beds ? getBedLabel(beds) + ' ' : ''}${type}</div>
+        <div class="card-price-row">
+          <span class="card-rent">₦${formatPrice(rent)}</span>
+          <span class="card-rent-label">/year</span>
+        </div>
+        ${total ? `
+        <div class="card-movein">
+          <span class="card-movein-label">Full move-in cost</span>
+          <span class="card-movein-amount">₦${formatPrice(total)}</span>
+        </div>` : ''}
+      </div>
+      <div class="card-footer">
+        <a href="${waLink}"
+           class="btn-wa"
+           target="_blank"
+           rel="noopener noreferrer"
+           onclick="event.stopPropagation()"
+           aria-label="Chat on WhatsApp about this ${type}">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.113 1.522 5.847L0 24l6.302-1.499A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.368l-.36-.213-3.736.889.934-3.626-.234-.373A9.818 9.818 0 012.182 12C2.182 6.566 6.566 2.182 12 2.182S21.818 6.566 21.818 12 17.434 21.818 12 21.818z"/>
+          </svg>
+          Chat on WhatsApp
+        </a>
+      </div>
+    </article>`;
+}
+
+/* ═══════════════════════════════════════
+   MODAL
+═══════════════════════════════════════ */
+function openModal(id) {
+  const listing = allListings.find(l => l.id === id);
+  if (!listing) return;
+  currentListing = listing;
+
+  const f = listing.fields;
+  const waLink = buildWALink(listing);
+  const type = f['Property Type'] || 'Property';
+  const beds = f['Bedrooms'] || '';
+  const area = f['Location'] || '';
+  const rent = f['Rent'] || 0;
+  const legal = f['Legal Fee'] || 0;
+  const caution = f['Caution'] || 0;
+  const mgt = f['Management Fee'] || 0;
+  const agency = f['Agency Fee'] || 0;
+  const total = f['Total Move-In'] || (rent + legal + caution + mgt + agency);
+  const photoUrl = f['Photo URL'] || '';
+  const desc = f['Notes'] || '';
+  const videoUrl = f['Video URL'] || '';
+
+  // Title
+  document.getElementById('modalTitle').textContent =
+    `${beds ? beds + '-bed ' : ''}${type}, ${area}`;
+
+  // Gallery
+  const gallery = document.getElementById('modalGallery');
+  const vid = ytId(videoUrl);
+  const galleryImg = photoUrl || (vid ? `https://i.ytimg.com/vi/${vid}/hqdefault.jpg` : '');
+  if (vid) {
+    gallery.innerHTML = `
+      <button type="button" onclick="playVideo('${vid}')" aria-label="Watch video walkthrough"
+        style="all:unset;cursor:pointer;display:block;position:relative;width:100%;height:100%;">
+        ${galleryImg
+          ? `<img src="${galleryImg}" alt="${type} in ${area}" style="width:100%;height:100%;object-fit:cover;">`
+          : `<div class="gallery-placeholder">🏠</div>`}
+        <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.28);">
+          <span style="display:inline-flex;align-items:center;gap:8px;background:rgba(0,0,0,.8);color:#fff;padding:11px 20px;border-radius:999px;font-weight:700;font-size:15px;">&#9654; Watch video</span>
+        </span>
+      </button>`;
+  } else if (photoUrl) {
+    gallery.innerHTML = `<img src="${photoUrl}" alt="${type} in ${area}" style="width:100%;height:100%;object-fit:cover;">`;
+  } else {
+    gallery.innerHTML = `<div class="gallery-placeholder">🏠</div>`;
+  }
+
+  // Body
+  document.getElementById('modalBody').innerHTML = `
+    <div class="modal-location">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:12px;height:12px">
+        <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+      </svg>
+      ${area}
+    </div>
+
+    <div class="modal-price-block">
+      <div class="modal-rent">₦${formatPrice(rent)}<span style="font-size:1rem;font-weight:600;color:var(--color-text-secondary)">/year</span></div>
+      <div class="modal-rent-sub">Rent only. Full move-in cost shown below.</div>
+    </div>
+
+    ${beds ? `
+    <div class="features-row">
+      <div class="feature-chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 7v13M21 7v13M3 12h18M3 7h18M7 7V5a2 2 0 014 0v2m2 0V5a2 2 0 014 0v2"/></svg>
+        ${getBedLabel(beds)}
+      </div>
+      <div class="feature-chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+        ${type}
+      </div>
+      <div class="feature-chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        ${area}
+      </div>
+    </div>` : ''}
+
+    ${desc ? `<p style="font-size:var(--text-sm);color:var(--color-text-secondary);margin-bottom:var(--space-4);line-height:1.7;">${desc}</p>` : ''}
+
+    <div class="cost-table" role="table" aria-label="Move-in cost breakdown">
+      <div class="cost-table-header" role="rowgroup">Full Move-In Cost Breakdown</div>
+      <div role="rowgroup">
+        ${rent ? `<div class="cost-row" role="row"><span class="cost-label" role="cell">Annual Rent</span><span class="cost-value" role="cell">${formatPriceFull(rent)}</span></div>` : ''}
+        ${legal ? `<div class="cost-row" role="row"><span class="cost-label" role="cell">Legal Fee</span><span class="cost-value" role="cell">${formatPriceFull(legal)}</span></div>` : ''}
+        ${caution ? `<div class="cost-row" role="row"><span class="cost-label" role="cell">Caution Deposit</span><span class="cost-value" role="cell">${formatPriceFull(caution)}</span></div>` : ''}
+        ${mgt ? `<div class="cost-row" role="row"><span class="cost-label" role="cell">Management Fee</span><span class="cost-value" role="cell">${formatPriceFull(mgt)}</span></div>` : ''}
+        ${agency ? `<div class="cost-row" role="row"><span class="cost-label" role="cell">Agency Fee</span><span class="cost-value" role="cell">${formatPriceFull(agency)}</span></div>` : ''}
+      </div>
+      <div class="cost-total" role="row">
+        <span class="cost-label" role="cell">Total to Move In</span>
+        <span class="cost-value" role="cell">${formatPriceFull(total)}</span>
+      </div>
+    </div>
+
+    <div class="modal-cta">
+      <a href="${waLink}"
+         class="btn-wa-lg"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Chat on WhatsApp about this property">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.113 1.522 5.847L0 24l6.302-1.499A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.368l-.36-.213-3.736.889.934-3.626-.234-.373A9.818 9.818 0 012.182 12C2.182 6.566 6.566 2.182 12 2.182S21.818 6.566 21.818 12 17.434 21.818 12 21.818z"/>
+        </svg>
+        Chat on WhatsApp
+      </a>
+    </div>
+
+    <div class="modal-or">or prefer a call?</div>
+
+    <div class="callback-form">
+      <h3>Request a Callback</h3>
+      <p>Leave your number and we'll call you back within 2 hours.</p>
+      <form id="callbackForm" onsubmit="submitCallback(event)" novalidate>
+        <input type="hidden" name="listing" value="${listing.id} — ${beds ? beds + '-bed ' : ''}${type} in ${area}">
+        <div class="form-group">
+          <label class="form-label" for="cbName">Your name <span aria-hidden="true">*</span></label>
+          <input class="form-input" type="text" id="cbName" name="name" placeholder="e.g. Chidinma Okonkwo" required autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="cbPhone">Phone number <span aria-hidden="true">*</span></label>
+          <input class="form-input" type="tel" id="cbPhone" name="phone" placeholder="e.g. 08031234567" required autocomplete="tel" inputmode="tel">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="cbTime">Best time to call <span aria-hidden="true">*</span></label>
+          <select class="form-select" id="cbTime" name="bestTime" required>
+            <option value="">Choose a time</option>
+            <option value="Morning (8am–12pm)">Morning (8am–12pm)</option>
+            <option value="Afternoon (12pm–5pm)">Afternoon (12pm–5pm)</option>
+            <option value="Evening (5pm–8pm)">Evening (5pm–8pm)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-callback" id="cbSubmit">Request Callback</button>
+      </form>
+      <div class="form-success" id="formSuccess">
+        <div class="icon">✅</div>
+        <h4>We'll call you soon!</h4>
+        <p>We typically call back within 2 hours. Keep your phone close.</p>
+      </div>
+    </div>
+
+    <p style="font-size:var(--text-xs);color:var(--color-text-muted);text-align:center;line-height:1.6;padding-bottom:var(--space-4);">
+      Prices shown are indicative guides. Final terms negotiated with the agent.
+    </p>
+  `;
+
+  // Open modal
+  document.getElementById('modalOverlay').classList.add('open');
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('modalClose').focus();
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+  currentListing = null;
+}
+
+document.getElementById('modalOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+document.getElementById('modalClose').addEventListener('click', closeModal);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+/* ═══════════════════════════════════════
+   CALLBACK FORM SUBMIT
+═══════════════════════════════════════ */
+async function submitCallback(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = document.getElementById('cbSubmit');
+  const name = form.name.value.trim();
+  const phone = form.phone.value.trim();
+  const bestTime = form.bestTime.value;
+  const listing = form.listing.value;
+
+  if (!name || !phone || !bestTime) return;
+
+  btn.textContent = 'Sending…';
+  btn.classList.add('loading');
+
+  const payload = { name, phone, bestTime, listing, source: 'callback-form', timestamp: new Date().toISOString() };
+
+  try {
+    if (CONFIG.callbackApi) {
+      await fetch(CONFIG.callbackApi, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+    }
+    // Also attempt Airtable direct if no Worker yet
+    document.getElementById('callbackForm').style.display = 'none';
+    document.getElementById('formSuccess').classList.add('show');
+  } catch (err) {
+    btn.textContent = 'Request Callback';
+    btn.classList.remove('loading');
+    alert('Something went wrong. Please WhatsApp us instead!');
+  }
+}
+
+/* ═══════════════════════════════════════
+   FILTER DRAWER
+═══════════════════════════════════════ */
+const filterBtn = document.getElementById('filterBtn');
+const filterDrawer = document.getElementById('filterDrawer');
+const filterOverlay = document.getElementById('filterOverlay');
+
+filterBtn.addEventListener('click', () => {
+  filterDrawer.classList.add('open');
+  filterOverlay.classList.add('open');
+  filterBtn.setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+});
+
+filterOverlay.addEventListener('click', closeFilterDrawer);
+
+function closeFilterDrawer() {
+  filterDrawer.classList.remove('open');
+  filterOverlay.classList.remove('open');
+  filterBtn.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+
+// Filter chips
+document.querySelectorAll('.filter-chip').forEach(chip => {
+  chip.addEventListener('click', function() {
+    const filterType = this.dataset.filter;
+    // Deactivate siblings
+    document.querySelectorAll(`.filter-chip[data-filter="${filterType}"]`).forEach(c => c.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+
+function applyFilters() {
+  activeFilters.type = document.querySelector('.filter-chip[data-filter="type"].active')?.dataset.value || '';
+  activeFilters.budget = document.querySelector('.filter-chip[data-filter="budget"].active')?.dataset.value || '';
+  activeFilters.beds = document.querySelector('.filter-chip[data-filter="beds"].active')?.dataset.value || '';
+  closeFilterDrawer();
+  renderListings();
+  updateFilterBtn();
+}
+
+function resetFilters() {
+  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+  document.querySelector('.filter-chip[data-filter="type"][data-value=""]')?.classList.add('active');
+  document.querySelector('.filter-chip[data-filter="budget"][data-value=""]')?.classList.add('active');
+  document.querySelector('.filter-chip[data-filter="beds"][data-value=""]')?.classList.add('active');
+  activeFilters = { type: '', budget: '', beds: '', search: activeFilters.search };
+}
+
+function updateFilterBtn() {
+  const hasFilter = activeFilters.type || activeFilters.budget || activeFilters.beds;
+  filterBtn.classList.toggle('active', !!hasFilter);
+}
+
+/* ═══════════════════════════════════════
+   SEARCH
+═══════════════════════════════════════ */
+let searchTimeout;
+document.getElementById('searchInput').addEventListener('input', function() {
+  clearTimeout(searchTimeout);
+  searchTimeout = setTimeout(() => {
+    activeFilters.search = this.value.trim().toLowerCase();
+    renderListings();
+  }, 300);
+});
+
+/* ═══════════════════════════════════════
+   RENDER LISTINGS
+═══════════════════════════════════════ */
+function renderListings() {
+  const grid = document.getElementById('listingsGrid');
+  const countEl = document.getElementById('resultsCount');
+  const clearBtn = document.getElementById('clearFilters');
+
+  // Apply filters
+  filteredListings = allListings.filter(l => {
+    const f = l.fields;
+    if (!isFresh(l)) return false;
+    if (activeFilters.search) {
+      const searchable = `${f['Location']} ${f['Property Type']}`.toLowerCase();
+      if (!searchable.includes(activeFilters.search)) return false;
+    }
+    if (activeFilters.type && f['Property Type'] !== activeFilters.type) return false;
+    if (activeFilters.budget && (f['Rent'] || 0) > parseInt(activeFilters.budget)) return false;
+    if (activeFilters.beds) {
+      const beds = f['Bedrooms'] || 0;
+      const filterBeds = parseInt(activeFilters.beds);
+      if (filterBeds === 4 && beds < 4) return false;
+      if (filterBeds < 4 && beds !== filterBeds) return false;
+    }
+    return true;
+  });
+
+  const hasFilters = activeFilters.type || activeFilters.budget || activeFilters.beds || activeFilters.search;
+  clearBtn.classList.toggle('visible', !!hasFilters);
+
+  if (filteredListings.length === 0) {
+    grid.innerHTML = `
+      <div class="empty-state">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <h3>No homes found</h3>
+        <p>Try adjusting your filters, or chat with us on WhatsApp — we'll find something for you.</p>
+      </div>`;
+    countEl.innerHTML = 'No homes found';
+    return;
+  }
+
+  grid.innerHTML = filteredListings.map(buildCard).join('');
+  countEl.innerHTML = `<strong>${filteredListings.length}</strong> home${filteredListings.length !== 1 ? 's' : ''} available`;
+}
+
+function clearAllFilters() {
+  resetFilters();
+  document.getElementById('searchInput').value = '';
+  activeFilters.search = '';
+  updateFilterBtn();
+  renderListings();
+}
+
+/* ═══════════════════════════════════════
+   LOAD LISTINGS
+═══════════════════════════════════════ */
+async function loadListings() {
+  try {
+    let records = [];
+
+    if (CONFIG.listingsApi) {
+      const res = await fetch(CONFIG.listingsApi);
+      const data = await res.json();
+      records = data.records || [];
+    } else if (CONFIG.airtableToken && CONFIG.airtableBase) {
+      const cached = sessionStorage.getItem('hn_listings');
+      if (cached) {
+        const { ts, records: r } = JSON.parse(cached);
+        if (Date.now() - ts < 600000) { records = r; }
+      }
+      if (!records.length) {
+        const res = await fetch(
+          `https://api.airtable.com/v0/${CONFIG.airtableBase}/Listings?filterByFormula=Status%3D%22Live%22&sort[0][field]=Total+Move-In&sort[0][direction]=asc`,
+          { headers: { Authorization: `Bearer ${CONFIG.airtableToken}` } }
+        );
+        const data = await res.json();
+        records = data.records || [];
+        sessionStorage.setItem('hn_listings', JSON.stringify({ ts: Date.now(), records }));
+      }
+    }
+
+    allListings = records.length ? records : SAMPLE_LISTINGS;
+  } catch (err) {
+    console.warn('Using sample listings:', err);
+    allListings = SAMPLE_LISTINGS;
+  }
+
+  renderListings();
+}
+
+/* ═══════════════════════════════════════
+   INIT
+═══════════════════════════════════════ */
+loadListings();
+</script>
+</body>
+</html>
