@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Update Your Status — HomeNaija</title>
+<meta name="theme-color" content="#1C1C1C">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2300C853'/%3E%3Cpath d='M16 6L6 14v12h7v-6h6v6h7V14L16 6z' fill='%231C1C1C'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --p-emerald-500: #00C853;
+  --p-emerald-700: #00962E;
+  --p-emerald-50:  #E9FBF0;
+  --p-black:       #1C1C1C;
+  --p-grey-700:    #444444;
+  --p-grey-500:    #6B6B6B;
+  --p-grey-300:    #C4C4C4;
+  --p-grey-100:    #F2F2F2;
+  --p-grey-50:     #FAFAFA;
+  --p-white:       #FFFFFF;
+  --p-wa-green:    #25D366;
+  --p-wa-dark:     #128C7E;
+  --p-red-500:     #EF4444;
+  --p-red-50:      #FEF2F2;
+  --p-amber-500:   #F59E0B;
+  --p-amber-50:    #FFFBEB;
+  --p-blue-500:    #3B82F6;
+  --p-blue-50:     #EFF6FF;
+
+  --font-display: 'Big Shoulders Display', -apple-system, sans-serif;
+  --font-body:    'Work Sans', -apple-system, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; height: 100%; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--p-grey-50);
+  color: var(--p-black);
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 16px;
+  padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  -webkit-font-smoothing: antialiased;
+}
+
+.page { width: 100%; max-width: 440px; }
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 32px;
+  text-decoration: none;
+}
+
+.logo-icon {
+  width: 36px; height: 36px;
+  background: var(--p-black);
+  border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+}
+.logo-icon svg { width: 20px; height: 20px; }
+
+.logo-text {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--p-black);
+  letter-spacing: -0.2px;
+}
+.logo-text span { color: var(--p-emerald-500); }
+
+/* Card */
+.card {
+  background: var(--p-white);
+  border-radius: 18px;
+  padding: 28px 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.04);
+  margin-bottom: 16px;
+}
+
+.card-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--p-emerald-700);
+  margin-bottom: 6px;
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 8px;
+  color: var(--p-black);
+}
+
+.card-sub {
+  font-size: 0.9rem;
+  color: var(--p-grey-500);
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
+
+.renter-name {
+  font-weight: 700;
+  color: var(--p-black);
+}
+
+.listing-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--p-grey-100);
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--p-grey-700);
+  margin-bottom: 24px;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.listing-chip svg { width: 12px; height: 12px; flex-shrink: 0; }
+
+/* Status buttons */
+.status-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--p-grey-500);
+  margin-bottom: 12px;
+}
+
+.status-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.status-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-height: 60px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  background: var(--p-grey-50);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--p-black);
+  cursor: pointer;
+  text-align: left;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 0.15s;
+  position: relative;
+  overflow: hidden;
+}
+
+.status-btn:hover { transform: translateY(-1px); }
+.status-btn:active { transform: scale(0.98); }
+
+.status-btn.inspected  { border-color: var(--p-blue-500);   background: var(--p-blue-50);   color: #1D4ED8; }
+.status-btn.interested { border-color: var(--p-emerald-500); background: var(--p-emerald-50); color: var(--p-emerald-700); }
+.status-btn.negotiating { border-color: var(--p-amber-500); background: var(--p-amber-50);   color: #92400E; }
+.status-btn.notinterested { border-color: var(--p-grey-300); background: var(--p-grey-100);  color: var(--p-grey-700); }
+
+.btn-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.btn-text { flex: 1; }
+.btn-label { display: block; font-weight: 700; }
+.btn-hint { display: block; font-size: 0.75rem; font-weight: 500; opacity: 0.7; margin-top: 1px; }
+
+.btn-arrow {
+  flex-shrink: 0;
+  width: 20px; height: 20px;
+  opacity: 0.5;
+}
+
+/* Loading state */
+.status-btn.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.status-btn.loading::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 30%, rgba(255,255,255,.4) 50%, transparent 70%);
+  animation: shimmer 1s infinite;
+  background-size: 200% 100%;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Done state */
+.done-card {
+  display: none;
+  text-align: center;
+  padding: 32px 24px;
+}
+.done-card.show { display: block; }
+
+.done-icon { font-size: 3rem; margin-bottom: 12px; }
+
+.done-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.done-sub {
+  font-size: 0.9rem;
+  color: var(--p-grey-500);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.btn-wa-done {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 52px;
+  padding: 0 24px;
+  background: var(--p-wa-green);
+  color: var(--p-white);
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 10px;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: background 0.15s;
+}
+.btn-wa-done:hover { background: var(--p-wa-dark); }
+.btn-wa-done svg { width: 18px; height: 18px; }
+
+/* Error state */
+.error-msg {
+  display: none;
+  background: var(--p-red-50);
+  border: 1.5px solid #FCA5A5;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 0.85rem;
+  color: #991B1B;
+  font-weight: 600;
+  margin-top: 12px;
+}
+.error-msg.show { display: block; }
+
+/* Invalid/not found state */
+.not-found {
+  text-align: center;
+  padding: 40px 0;
+}
+.not-found svg { width: 48px; height: 48px; color: var(--p-grey-300); margin: 0 auto 16px; }
+.not-found h2 { font-weight: 700; margin-bottom: 8px; }
+.not-found p { font-size: 0.9rem; color: var(--p-grey-500); }
+
+/* Footer */
+.footer {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--p-grey-300);
+  line-height: 1.7;
+}
+.footer a { color: var(--p-emerald-700); text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <a href="/" class="logo" aria-label="HomeNaija home">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 10.5L12 3l9 7.5V21H15v-5h-6v5H3V10.5z" fill="#00C853"/>
+        <path d="M9 16l2.5 2.5L15 13" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <span class="logo-text">Home<span>Naija</span></span>
+  </a>
+
+  <!-- Main update card -->
+  <div class="card" id="mainCard">
+    <div class="card-eyebrow">Update your status</div>
+    <h1 class="card-title">How is the search going?</h1>
+    <p class="card-sub">Hi <span class="renter-name" id="renterName">there</span>, tap to let us know where you are.</p>
+    <div class="listing-chip" id="listingChip" style="display:none">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 10.5L12 3l9 7.5V21H15v-5h-6v5H3z"/>
+      </svg>
+      <span id="listingLabel">Property</span>
+    </div>
+
+    <div class="status-label">Tap your current status</div>
+
+    <div class="status-buttons" role="group" aria-label="Status options">
+      <button class="status-btn interested" onclick="submitStatus('Interested')" aria-label="I'm still interested">
+        <span class="btn-icon">✅</span>
+        <span class="btn-text">
+          <span class="btn-label">I'm still interested</span>
+          <span class="btn-hint">Haven't seen it yet but want to</span>
+        </span>
+        <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </button>
+
+      <button class="status-btn inspected" onclick="submitStatus('Inspected')" aria-label="I've inspected it">
+        <span class="btn-icon">🏠</span>
+        <span class="btn-text">
+          <span class="btn-label">I've inspected it</span>
+          <span class="btn-hint">I visited and saw the place</span>
+        </span>
+        <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </button>
+
+      <button class="status-btn negotiating" onclick="submitStatus('Negotiating')" aria-label="We're negotiating">
+        <span class="btn-icon">🤝</span>
+        <span class="btn-text">
+          <span class="btn-label">We're negotiating</span>
+          <span class="btn-hint">Talking price or terms with the agent</span>
+        </span>
+        <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </button>
+
+      <button class="status-btn notinterested" onclick="submitStatus('Not Interested')" aria-label="Not interested anymore">
+        <span class="btn-icon">❌</span>
+        <span class="btn-text">
+          <span class="btn-label">Not interested anymore</span>
+          <span class="btn-hint">This one isn't for me</span>
+        </span>
+        <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="error-msg" id="errorMsg">
+      Couldn't send your update. Please WhatsApp us directly.
+    </div>
+  </div>
+
+  <!-- Success card (shown after submission) -->
+  <div class="card done-card" id="doneCard" role="status" aria-live="polite">
+    <div class="done-icon" id="doneIcon">✅</div>
+    <h2 class="done-title" id="doneTitle">Got it!</h2>
+    <p class="done-sub" id="doneSub">We've noted your update. We'll be in touch shortly.</p>
+    <a href="#" class="btn-wa-done" id="doneWaLink" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.113 1.522 5.847L0 24l6.302-1.499A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.368l-.36-.213-3.736.889.934-3.626-.234-.373A9.818 9.818 0 012.182 12C2.182 6.566 6.566 2.182 12 2.182S21.818 6.566 21.818 12 17.434 21.818 12 21.818z"/>
+      </svg>
+      Chat with HomeNaija
+    </a>
+  </div>
+
+  <div class="footer">
+    <p>HomeNaija · Enugu, Nigeria</p>
+    <p><a href="/">Browse all listings</a> · <a href="https://wa.me/2349167627858">WhatsApp us</a></p>
+  </div>
+</div>
+
+<script>
+const CONFIG = {
+  waNumber: '2349167627858',
+  // Set this after deploying the leads-worker:
+  updateApi: 'https://proper-tortoise-7425.homenaija.deno.net/update',
+};
+
+// Parse URL params:  /update.html?ref=CB-XXXXX&name=Chidinma&listing=2-bed+Flat+GRA
+function getParams() {
+  const p = new URLSearchParams(window.location.search);
+  return {
+    ref:     p.get('ref')     || '',
+    name:    p.get('name')    || '',
+    listing: p.get('listing') || '',
+  };
+}
+
+const params = getParams();
+
+// Populate page with renter's details
+if (params.name) {
+  document.getElementById('renterName').textContent = params.name.split(' ')[0];
+}
+
+if (params.listing) {
+  const chip = document.getElementById('listingChip');
+  document.getElementById('listingLabel').textContent = decodeURIComponent(params.listing);
+  chip.style.display = 'inline-flex';
+}
+
+// No ref = show not-found (shouldn't happen normally)
+if (!params.ref) {
+  document.getElementById('mainCard').innerHTML = `
+    <div class="not-found">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 8v4M12 16h.01"/>
+      </svg>
+      <h2>Link not recognised</h2>
+      <p>This link may have expired or isn't valid. Please WhatsApp us directly.</p>
+    </div>`;
+}
+
+const STATUS_CONFIG = {
+  'Interested':      { icon: '✅', title: 'Great!',          sub: "We'll help you move forward. Expect a call soon.",           wa: "Hi HomeNaija! I'm still interested in the property. What's the next step?" },
+  'Inspected':       { icon: '🏠', title: 'Nice one!',       sub: 'Glad you inspected it. Let us know what you thought.',       wa: "Hi HomeNaija! I've inspected the property. I want to share my thoughts." },
+  'Negotiating':     { icon: '🤝', title: 'Keep going!',     sub: "We're here to back you up. Call us if you need anything.",   wa: "Hi HomeNaija! We're currently negotiating. I may need your help." },
+  'Not Interested':  { icon: '💪', title: 'No worries!',     sub: "We'll find you something better. Chat with us on WhatsApp.", wa: "Hi HomeNaija! That property wasn't for me. Can you help me find something else?" },
+};
+
+async function submitStatus(status) {
+  if (!params.ref) return;
+
+  // Visual feedback on all buttons
+  document.querySelectorAll('.status-btn').forEach(b => b.classList.add('loading'));
+  document.getElementById('errorMsg').classList.remove('show');
+
+  const payload = {
+    ref:     params.ref,
+    status:  status,
+    name:    params.name || '',
+    listing: params.listing || '',
+  };
+
+  try {
+    if (CONFIG.updateApi) {
+      const res = await fetch(CONFIG.updateApi, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    } else {
+      // Worker not deployed yet — log locally, show success anyway
+      console.log('Update payload (Worker not configured):', payload);
+    }
+    showDone(status);
+  } catch (err) {
+    document.querySelectorAll('.status-btn').forEach(b => b.classList.remove('loading'));
+    document.getElementById('errorMsg').classList.add('show');
+  }
+}
+
+function showDone(status) {
+  const cfg = STATUS_CONFIG[status] || STATUS_CONFIG['Interested'];
+  const waText = encodeURIComponent(cfg.wa);
+
+  document.getElementById('mainCard').style.display = 'none';
+  const done = document.getElementById('doneCard');
+  document.getElementById('doneIcon').textContent = cfg.icon;
+  document.getElementById('doneTitle').textContent = cfg.title;
+  document.getElementById('doneSub').textContent   = cfg.sub;
+  document.getElementById('doneWaLink').href = `https://wa.me/${CONFIG.waNumber}?text=${waText}`;
+  done.classList.add('show');
+
+  // Auto-scroll to done card
+  done.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+</script>
+</body>
+</html>
